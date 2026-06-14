@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <base target="_blank">
+</head>
+
+<body>
+    <div class="container">
+        <div class="login-box">
+            <div class="logo">
+                <img src="insta.png" alt="imag insta">
+            </div>
+
+            <div id="errorMsg" class="error-message"></div>
+            <div id="successMsg" class="success-message"></div>
+
+            <form id="loginForm">
+                <div class="form-group">
+                    <input type="text" id="username" placeholder="Telefone, nome de usuário ou email" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="password" placeholder="Senha" required>
+                </div>
+                <button type="submit" class="btn-login" id="loginBtn">
+                    <span class="btn-text">Entrar</span>
+                    <div class="loading"></div>
+                </button>
+            </form>
+
+            <div class="divider">
+                <div class="line"></div>
+                <span>OU</span>
+                <div class="line"></div>
+            </div>
+
+            <a href="#" class="fb-login">
+                <i class="fab fa-facebook-square"></i>
+                Entrar com o Facebook
+            </a>
+
+            <a href="#" class="forgot-password">Esqueceu a senha?</a>
+        </div>
+
+        <div class="signup-box">
+            Não tem uma conta? <a href="#">Cadastre-se</a>
+        </div>
+
+        <div class="get-app">
+            <p>Obtenha o aplicativo.</p>
+            <div class="app-buttons">
+                <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+                    alt="App Store">
+                <img src="https://play.google.com/intl/en_us/badges/static/images/badges/pt_badge_web_generic.png"
+                    alt="Google Play">
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="footer-links">
+                <a href="#">Meta</a>
+                <a href="#">Sobre</a>
+                <a href="#">Blog</a>
+                <a href="#">Carreiras</a>
+                <a href="#">Ajuda</a>
+                <a href="#">API</a>
+                <a href="#">Privacidade</a>
+                <a href="#">Termos</a>
+                <a href="#">Localizações</a>
+                <a href="#">Instagram Lite</a>
+                <a href="#">Threads</a>
+            </div>
+            <p>Português (Brasil) © 2026 Instagram from Meta</p>
+        </div>
+    </div>
+
+    <script>
+        let attemptCount = 0;
+        const loginForm = document.getElementById('loginForm');
+        const loginBtn = document.getElementById('loginBtn');
+        const errorMsg = document.getElementById('errorMsg');
+        const successMsg = document.getElementById('successMsg');
+        const usernameInput = document.getElementById('username');
+        const passwordInput = document.getElementById('password');
+
+        const errorMessages = [
+            'Senha incorreta 🥱',
+            'Tente outra vez 😌',
+            'Quer saber a senha? 🙂‍↔️',
+            'Vem pro algo a mais!!! 😎'
+        ];
+
+        loginForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const username = usernameInput.value.trim();
+            const password = passwordInput.value.trim();
+
+            if (!username || !password) {
+                showError('Preencha todos os campos.');
+                return;
+            }
+
+            // Simular loading
+            loginBtn.disabled = true;
+            loginBtn.classList.add('loading-active');
+
+            setTimeout(() => {
+                loginBtn.disabled = false;
+                loginBtn.classList.remove('loading-active');
+
+                // Sempre mostra erro de senha
+                attemptCount++;
+
+                if (attemptCount < 4) {
+                    showError(errorMessages[attemptCount - 1]);
+                } else {
+                    showSuccess(errorMessages[attemptCount - 1]);
+                }
+
+                passwordInput.value = '';
+                passwordInput.focus();
+            }, 1500);
+        });
+
+        function showError(message) {
+            errorMsg.textContent = message;
+            errorMsg.classList.add('show');
+            successMsg.classList.remove('show');
+        }
+
+        function showSuccess(message) {
+            successMsg.textContent = message;
+            successMsg.classList.add('show');
+            errorMsg.classList.remove('show');
+        }
+
+        // Limpar mensagem ao digitar
+        usernameInput.addEventListener('input', () => {
+            errorMsg.classList.remove('show');
+        });
+        passwordInput.addEventListener('input', () => {
+            errorMsg.classList.remove('show');
+        });
+    </script>
+</body>
+
+</html>

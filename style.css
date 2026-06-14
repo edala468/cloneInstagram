@@ -1,0 +1,257 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all 1s;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: #fafafa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 350px;
+    width: 100%;
+}
+
+.login-box {
+    background: #fff;
+    border: 1px solid #dbdbdb;
+    padding: 40px 40px 20px;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.logo {
+    margin-bottom: 30px;
+}
+
+.logo img {
+    width: 80px;
+}
+
+.logo-text {
+    font-family: 'Billabong', cursive;
+    font-size: 50px;
+    color: #262626;
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+.form-group {
+    margin-bottom: 6px;
+    position: relative;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 8px 11px 8px;
+    border: 1px solid #dbdbdb;
+    border-radius: 10px;
+    margin-bottom: 5px;
+    background: #fafafa;
+    font-size: 12px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.form-group input:focus {
+    border-color: #a8a8a8;
+}
+
+.form-group input::placeholder {
+    color: #8e8e8e;
+    font-size: 12px;
+}
+
+.btn-login {
+    width: 100%;
+    padding: 8px;
+    background: #0095f6;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 8px;
+    margin-bottom: 15px;
+    transition: background 0.2s;
+}
+
+.btn-login:hover {
+    background: #1877f2;
+}
+
+.btn-login:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+}
+
+.divider .line {
+    flex: 1;
+    height: 1px;
+    background: #dbdbdb;
+}
+
+.divider span {
+    margin: 0 15px;
+    color: #8e8e8e;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.fb-login {
+    color: #385185;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.fb-login i {
+    font-size: 18px;
+}
+
+.forgot-password {
+    color: #00376b;
+    font-size: 12px;
+    text-decoration: none;
+}
+
+.signup-box {
+    background: #fff;
+    border: 1px solid #dbdbdb;
+    padding: 20px;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+}
+
+.signup-box a {
+    color: #0095f6;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.get-app {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.get-app p {
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.app-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+.app-buttons img {
+    height: 40px;
+}
+
+.error-message {
+    color: #ed4956;
+    font-size: 14px;
+    margin-bottom: 15px;
+    display: none;
+    text-align: center;
+}
+
+.error-message.show {
+    display: block;
+}
+
+.success-message {
+    color: #00a400;
+    font-size: 14px;
+    margin-bottom: 15px;
+    display: none;
+    text-align: center;
+}
+
+.success-message.show {
+    display: block;
+}
+
+.footer {
+    margin-top: 40px;
+    text-align: center;
+    color: #8e8e8e;
+    font-size: 12px;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.footer-links a {
+    color: #8e8e8e;
+    text-decoration: none;
+}
+
+.loading {
+    display: none;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #fff;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.btn-login.loading-active .btn-text {
+    display: none;
+}
+
+.btn-login.loading-active .loading {
+    display: block;
+}
+
+/* Responsive */
+@media (max-width: 450px) {
+    body {
+        background: #fff;
+    }
+
+    .login-box,
+    .signup-box {
+        border: none;
+        padding: 20px;
+    }
+}
