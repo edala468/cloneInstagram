@@ -194,6 +194,7 @@ body {
     margin-bottom: 15px;
     display: none;
     text-align: center;
+    text-transform: uppercase;
 }
 
 .success-message.show {
